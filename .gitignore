@@ -1,3 +1,11 @@
 # pixi environments
-.pixi/*
-!.pixi/config.toml
+.pixi
+*.egg-info
+*.lock
+# misc
+*.DS_Store
+__pycache__
+
+# Book artifacts
+book/book
+book/html

@@ -5,5 +5,11 @@ platforms = ["linux-64"]
 version = "0.1.0"
 
 [tasks]
+huggingface = "python scripts/hugging-face-model.py"
+s01 = "python tests/test.step_01.py"
 
 [dependencies]
+modular = "25.7.*"
+transformers = ">=4.57.0,<5"
+pytorch = ">=2.8.0,<3"
+numpy = ">=2.3.3,<3"

@@ -100,4 +100,4 @@ Results:
 ✅ layer_norm_epsilon is correct
 ```
 
-**Reference**: `puzzles/config.py`
+**Reference**: `steps/step_01.py`

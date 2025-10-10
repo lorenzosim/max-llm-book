@@ -1,12 +1,11 @@
 """GPT-2 model configuration."""
 
-# 1. Import dataclass from the dataclasses module
-
+# 1. Import dataclass from the dataclasses module\
 
 # 2. Add the Python @dataclass decorator to the GPT2Config class
 
 class GPT2Config:
-    """GPT-2 configuration matching HuggingFace.
+    """GPT-2 configuration matching HuggingFace. 
 
     Attributes:
         vocab_size: Size of the vocabulary.

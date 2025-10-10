@@ -75,6 +75,25 @@ def test_gpt2_config():
     else:
         print(f"❌ layer_norm_epsilon is incorrect: expected match with Hugging Face model configuration, got {config.layer_norm_epsilon}")
 
+    # Final summary
+    print("\n" + "="*60)
+    if all([
+        'from dataclasses import dataclass' in source,
+        hasattr(config, '__dataclass_fields__'),
+        config.vocab_size == 50257,
+        config.n_positions == 1024,
+        config.n_embd == 768,
+        config.n_layer == 12,
+        config.n_head == 12,
+        config.n_inner == 3072,
+        config.layer_norm_epsilon == 1e-05
+    ]):
+        print("🎉 All checks passed! Your implementation matches the solution.")
+        print("="*60)
+    else:
+        print("⚠️  Some checks failed. Review the hints above and try again.")
+        print("="*60)
+
 if __name__ == "__main__":
     test_gpt2_config()
 

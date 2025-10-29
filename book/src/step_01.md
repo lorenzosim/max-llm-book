@@ -1,14 +1,19 @@
-# Step 01: Create Model Configuration (`step_01.py`)
+# Step 01: Model configuration
 
-**Purpose**: Define the GPT-2 model architecture parameters.
 
-## What is Model Configuration?
+<div class="note">
+    Learn to define the GPT-2 model architecture parameters using configuration classes.
+</div>
 
-Model configuration is the foundational step in building or loading a neural network. It defines the architecture's "blueprint" - specifying dimensions, layer counts, and other structural parameters that determine how the model processes information. Think of it as the architectural specification before construction begins.
+## What is model configuration?
 
-In this step, we're creating a configuration class that stores GPT-2's hyperparameters. These parameters aren't learned during training; rather, they define the model's structure: how many layers it has, how wide those layers are, how many attention heads to use, and so on.
+In this section you will create the `GPT2Config` class. This defines the GPT architecture or blueprint; specifying: dimensions, layer counts, and other model specific parameters that determine how the model processes information.
 
-## Why Create This Configuration?
+You can view GPT-2's model parameters in the
+[config.json](https://huggingface.co/openai-community/gpt2/blob/main/config.json)
+file on Hugging Face.
+
+## Why create this configuration?
 
 **1. Compatibility with Pretrained Models**: By matching Hugging Face's GPT-2 configuration exactly, we ensure our implementation can load their pretrained weights. This is crucial - it means we can leverage a model trained on billions of tokens without needing to retrain from scratch.
 
@@ -18,8 +23,10 @@ In this step, we're creating a configuration class that stores GPT-2's hyperpara
 
 **4. Foundation for Implementation**: This configuration serves as the contract for all subsequent steps. Every component we build (embeddings, attention, MLP layers) will reference these parameters to ensure dimensional consistency.
 
-### Key Concepts:
+### Key concepts
+
 **Dataclasses in Python**:
+
 - Python's [`@dataclass`](https://docs.python.org/3/library/dataclasses.html) decorator reduces boilerplate code when creating configuration objects and provides clean syntax for defining class attributes with type hints and default values
 
 **Model Configuration**:
@@ -41,7 +48,7 @@ In this step, we're creating a configuration class that stores GPT-2's hyperpara
 - `n_inner`: Dimension of the MLP intermediate layer (typically 4x n_embd)
 - `layer_norm_epsilon`: Small constant for numerical stability in layer normalization
 
-### Implementation Tasks (`step_01.py`):
+### Implementation tasks (`step_01.py`)
 1. Import dataclass from the dataclasses module 
 2. Add the Python @dataclass decorator to the GPT2Config class
 3. Get the correct values for the model parameters
@@ -66,7 +73,7 @@ class GPT2Config:
     layer_norm_epsilon: float = 0  # ?
 ```
 
-### Validation:
+### Validation
 run `pixi run s01`
 
 A failed test will show

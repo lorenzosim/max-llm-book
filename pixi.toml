@@ -21,9 +21,13 @@ s07 = "python tests/test.step_07.py"
 s08 = "python tests/test.step_08.py"
 s09 = "python tests/test.step_09.py"
 s10 = "python tests/test.step_10.py"
+s11 = "python tests/test.step_11.py"
+s12 = "python tests/test.step_12.py"
+s13 = "python tests/test.step_13.py"
+s14 = "python tests/test.step_14.py"
 
 # Run all tests
-test-all = "python -m pytest tests/"
+test-all = "python tests/test.step_01.py && python tests/test.step_02.py && python tests/test.step_03.py && python tests/test.step_04.py && python tests/test.step_05.py && python tests/test.step_06.py && python tests/test.step_07.py && python tests/test.step_08.py && python tests/test.step_09.py && python tests/test.step_10.py && python tests/test.step_11.py && python tests/test.step_12.py && python tests/test.step_13.py && python tests/test.step_14.py"
 
 # Format python
 fmt = "ruff format ."

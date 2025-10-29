@@ -1,23 +1,21 @@
-# Step 03: Implement Layer Normalization
+# Step 03: Layer normalization
 
-**Purpose**: Create a custom layer normalization module for stabilizing neural network training.
+<div class="note">
+    Learn to implement layer normalization for stabilizing neural network training.
+</div>
 
-## What is Layer Normalization?
+## What is layer normalization?
 
-[Layer Normalization](https://arxiv.org/abs/1607.06450) is a technique that normalizes the inputs across the features (the last dimension) for each example in a batch. Unlike batch normalization which normalizes across the batch dimension, layer normalization normalizes across the feature dimension, making it particularly well-suited for sequence models and transformers.
+In this section you will create the `LayerNorm` class. This normalizes activations across the feature dimension to stabilize training. Unlike batch normalization, [layer normalization](https://arxiv.org/abs/1607.06450) works independently for each example, making it ideal for transformers.
 
-The normalization process involves:
-1. Computing the mean and variance across the feature dimension
-2. Subtracting the mean and dividing by the standard deviation (adding a small epsilon for numerical stability)
-3. Scaling by a learned weight parameter (gamma) and shifting by a learned bias parameter (beta)
+The process:
+1. Compute mean and variance across features
+2. Normalize by subtracting mean and dividing by standard deviation (plus a small epsilon)
+3. Scale and shift using learned weight and bias parameters
 
-Mathematically:
+GPT-2 applies layer normalization before the attention and MLP blocks in each transformer layer.
 
-$$\Large y = \frac{x+ϵ}{\sqrt Var[x] + ϵ} ∗ γ+β$$
-
-where μ is the mean, σ² is the variance, γ (gamma/weight) is the learned scale, and β (beta/bias) is the learned shift.
-
-## Why Use Layer Normalization?
+## Why use layer normalization?
 
 **1. Training Stability**: Layer normalization reduces internal covariate shift, stabilizing the distribution of layer inputs during training. This allows for higher learning rates and faster convergence.
 
@@ -30,7 +28,7 @@ where μ is the mean, σ² is the variance, γ (gamma/weight) is the learned sca
 
 **4. Transformer Standard**: Layer normalization has become the de facto normalization technique in transformer architectures, including GPT-2, BERT, and their variants. GPT-2 uses layer norm before the attention and MLP blocks in each transformer layer.
 
-### Key Concepts:
+### Key concepts
 
 **Layer Normalization Mechanics**:
 - Normalizes across the feature/embedding dimension (last dimension)
@@ -56,7 +54,7 @@ where μ is the mean, σ² is the variance, γ (gamma/weight) is the learned sca
   - `beta`: Bias/shift parameter (our `self.bias`)
   - `epsilon`: Small constant for numerical stability
 
-### Implementation Tasks (`step_03.py`):
+### Implementation tasks (`step_03.py`)
 
 1. **Import Required Modules** (Lines 1-6):
    - `functional as F` from `max.experimental` - provides F.layer_norm()
@@ -105,7 +103,7 @@ class LayerNorm(Module):
         return F.layer_norm(x, gamma=self.weight, beta=self.bias, epsilon=self.eps)
 ```
 
-### Validation:
+### Validation
 Run `pixi run s03`
 
 A failed test will show:

@@ -1,16 +1,18 @@
-# Step 02: Implement Causal Masking (`step_02.py`)
+# Step 02: Causal masking
 
-**Purpose**: Create attention masks to prevent the model from "seeing" future tokens.
+<div class="note">
+    Learn to create attention masks to prevent the model from "seeing" future tokens during autoregressive generation.
+</div>
 
-## What is Causal Masking?
+## What is causal masking?
 
-[Causal masking](https://docs.modular.com/glossary/ai/attention-mask/) is a fundamental technique in autoregressive language models that enforces temporal causality - ensuring that predictions for a given position can only depend on known outputs at earlier positions, not future positions.
+In this section you will implement the `causal_mask()` function. This creates a [mask matrix](https://docs.modular.com/glossary/ai/attention-mask/) that prevents the model from "seeing" future tokens when predicting the next token.
 
-In practice, this is implemented by creating a mask matrix that sets attention scores to negative infinity (`-inf`) for future token positions. When the softmax function is applied during attention computation, these `-inf` values become zero probabilities, effectively blocking information flow from future tokens.
+The mask sets attention scores to negative infinity (`-inf`) for future positions. After using `softmax()`, these `-inf` values become zero probability, blocking information flow from tokens that come later in the sequence.
 
-This creates a lower triangular attention pattern where each token can only "see" itself and previous tokens, enabling true autoregressive generation.
+This creates a lower triangular pattern where each token can only attend to itself and previous tokens.
 
-## Why Use Causal Masking?
+## Why use causal masking?
 
 **1. Autoregressive Generation**: GPT-2 generates text one token at a time, left-to-right. During training, causal masking prevents the model from "cheating" by looking ahead at tokens it should be predicting, forcing it to learn genuine next-token prediction.
 
@@ -20,7 +22,7 @@ This creates a lower triangular attention pattern where each token can only "see
 
 **4. KV Cache Compatibility**: The causal structure allows for key-value caching during generation - we can cache past token representations and only compute new ones, significantly speeding up inference.
 
-### Key Concepts:
+### Key concepts
 
 **Causal Masking Mechanics**:
 - Sets attention scores to `-inf` for future positions before softmax
@@ -43,7 +45,7 @@ This creates a lower triangular attention pattern where each token can only "see
 - Output shape: `(sequence_length, sequence_length + num_tokens)`
 - Allows attending to both current sequence and previous context (KV cache)
 
-### Implementation Tasks (`step_02.py`):
+### Implementation tasks (`step_02.py`)
 
 1. **Import Required Modules** (Lines 1-10):
    - `Device` from `max.driver` - specifies hardware device (CPU/GPU)
@@ -109,7 +111,7 @@ def causal_mask(
     return F.band_part(mask, num_lower=None, num_upper=0, exclude=True)
 ```
 
-### Validation:
+### Validation
 Run `pixi run s02`
 
 A failed test will show:

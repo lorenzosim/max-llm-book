@@ -563,7 +563,24 @@ img {
   margin: 1em auto;
 }
 
-/* Python syntax highlighting for light mode (supports both .language-python and .language-mojo) */
+/* GPT-2 images that switch with theme - show/hide light/dark versions */
+img.light-mode-img {
+  display: block;
+}
+
+img.dark-mode-img {
+  display: none;
+}
+
+.ayu img.light-mode-img {
+  display: none;
+}
+
+.ayu img.dark-mode-img {
+  display: block;
+}
+
+/* Python/Mojo syntax highlighting for light mode */
 .language-mojo .kw,
 .language-mojo .hljs-keyword,
 .language-mojo .keyword {
@@ -613,7 +630,7 @@ img {
   color: #df5000;
 }
 
-/* Python syntax highlighting for dark mode (supports both .language-python and .language-mojo) */
+/* Python/Mojo syntax highlighting for dark mode */
 .ayu .language-mojo .kw,
 .ayu .language-mojo .hljs-keyword,
 .ayu .language-mojo .keyword {
@@ -663,13 +680,13 @@ img {
   color: #ffab70;
 }
 
-/* Visual improvements for code blocks */
+/* Visual improvements for Mojo code blocks */
 .language-mojo {
   background-color: rgba(8, 165, 225, 0.05);
   border-left: 3px solid var(--modular-blue);
 }
 
-/* Override default mdBook code styling to properly color code */
+/* Override default mdBook code styling to properly color Mojo code */
 .hljs.language-mojo {
   color: var(--modular-secondary-text);
   background-color: transparent;
@@ -692,7 +709,7 @@ img {
   margin: 15px 0;
 }
 
-/* Chapter container navigation */
+/* GPT-2 chapter container navigation */
 .previous-next-container {
   display: flex;
   justify-content: space-between;
@@ -770,7 +787,7 @@ mark {
     padding: 0;
   }
 
-  .puzzle-image {
+  .gpt2-image {
     width: 60px;
   }
 
@@ -795,8 +812,8 @@ mark {
   .page-header {
     border-bottom: none;
   }
-  .sidebar {
-    width: 100%;
+  :root {
+    --sidebar-width: 100vw;
   }
 }
 
@@ -1065,8 +1082,25 @@ details:last-child {
   margin-bottom: 60px;
 }
 
+.note {
+  background-color: #e7f3fe;
+  border-left: 4px solid #2196F3;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Dark theme adjustments for note */
+.ayu .note,
+.coal .note,  
+.navy .note {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-left: 4px solid #2196F3;
+}
+
 /* Restore original content max-width */
 main .content {
   max-width: var(--content-max-width);
   padding: 0 var(--page-padding);
 }
+

@@ -49,17 +49,26 @@ You can work through the tutorial sequentially for comprehensive understanding,
 or skip directly to topics you need. Each step is self-contained enough to be
 useful independently while building toward a complete implementation.
 
-## What You'll Build
+## What you'll build
 
 This tutorial guides you through building GPT-2 in manageable steps:
 
-| Step | Component             | What You'll Learn                                                                    |
-|------|-----------------------|--------------------------------------------------------------------------------------|
-| 1    | Model Configuration   | Define architecture hyperparameters and ensure compatibility with pretrained weights |
-| 2    | Token Embeddings      | Convert token IDs to continuous vector representations                               |
-| 3    | Position Embeddings   | Encode sequence order information                                                    |
-| 4    | Layer Normalization   | Stabilize activations for effective training                                         |
-| ...  | Additional components | (Coming soon)                                                                        |
+| Step | Component                           | What you'll learn                                                        |
+|------|-------------------------------------|--------------------------------------------------------------------------|
+| 1    | Model configuration                 | Define architecture hyperparameters matching HuggingFace GPT-2           |
+| 2    | Causal masking                      | Create attention masks to prevent looking at future tokens               |
+| 3    | Layer normalization                 | Stabilize activations for effective training                             |
+| 4    | GPT-2 MLP (feed-forward network)    | Build the position-wise feed-forward network with GELU activation        |
+| 5    | Token embeddings                    | Convert token IDs to continuous vector representations                   |
+| 6    | Position embeddings                 | Encode sequence order information                                        |
+| 7    | Query/Key/Value projections         | Transform embeddings for attention computation (single head)             |
+| 8    | Attention mechanism                 | Implement scaled dot-product attention with causal masking               |
+| 9    | Multi-head attention                | Extend to multiple parallel attention heads                              |
+| 10   | Residual connections & layer norm   | Enable training deep networks with skip connections                      |
+| 11   | Transformer block                   | Combine attention and MLP into the core building block                   |
+| 12   | Stacking transformer blocks         | Create the complete 12-layer GPT-2 model                                 |
+| 13   | Language model head                 | Project hidden states to vocabulary logits                               |
+| 14   | Text generation                     | Generate text autoregressively with temperature sampling                 |
 
 Each step includes:
 
@@ -69,7 +78,7 @@ Each step includes:
 - Connections to broader model development patterns
 
 By the end, you'll have a complete GPT-2 implementation and practical experience
-with MAX's Graph API—skills you can immediately apply to your own projects.
+with MAX's Python API—skills you can immediately apply to your own projects.
 
 ## Prerequisites
 
@@ -85,4 +94,4 @@ Whether you're exploring MAX for the first time or deepening your understanding
 of model architecture, this tutorial provides hands-on experience you can apply
 to current projects and learning priorities.
 
-Ready to build? Let's get started with [Step 01: Model Configuration](./step_01.md).
+Ready to build? Let's get started with [Step 01: Model configuration](./step_01.md).

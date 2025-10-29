@@ -1,16 +1,16 @@
-# Step 04: Implement GPT-2 MLP (Feed-Forward Network)
+# Step 04: Feed-forward network
 
-**Purpose**: Build the feed-forward network (MLP) component that processes information after attention in each transformer block.
+<div class="note">
+    Learn to build the feed-forward network (MLP) that processes information after attention in each transformer block.
+</div>
 
 ## What is the GPT-2 MLP?
 
-The Multi-Layer Perceptron (MLP) is a feed-forward neural network that appears in every transformer block of GPT-2, immediately after the attention mechanism. It consists of two linear transformations with a non-linear activation function in between.
+In this section you will build the `MLP` class. This is a two-layer feed-forward network that appears after the attention mechanism in every transformer block.
 
-In practice, the MLP serves as a position-wise feed-forward network that processes each token independently. It expands the representation to a larger intermediate dimension, applies a non-linear transformation, then projects back to the original embedding dimension.
+The MLP expands the embedding dimension by 4x (768 → 3072), applies a GELU activation function, then projects back to the original dimension (3072 → 768). This "expansion and contraction" pattern processes each token position independently, adding non-linear transformations to the attention outputs.
 
-This creates a two-layer neural network with a characteristic "expansion and contraction" pattern that helps the model learn complex transformations of the attention outputs.
-
-## Why Use an MLP in Transformers?
+## Why use an MLP in transformers?
 
 **1. Non-Linear Transformations**: While attention provides a powerful mechanism for aggregating information across tokens, it's fundamentally a linear operation (weighted sum). The MLP adds crucial non-linearity through the GELU activation function, enabling the model to learn complex patterns.
 
@@ -20,7 +20,7 @@ This creates a two-layer neural network with a characteristic "expansion and con
 
 **4. Information Mixing**: While attention mixes information across sequence positions, the MLP mixes information across feature dimensions at each position, providing a complementary form of computation.
 
-### Key Concepts:
+### Key concepts
 
 **MLP Architecture**:
 - Two linear layers: `c_fc` (expansion) and `c_proj` (projection)
@@ -32,8 +32,16 @@ This creates a two-layer neural network with a characteristic "expansion and con
 **GELU Activation Function**:
 - GELU (Gaussian Error Linear Unit) is the activation function used in GPT-2
 - Smoother alternative to ReLU, incorporating probabilistic behavior
-- Formula: `GELU(x) H x * �(x)` where � is the cumulative distribution function of the standard normal distribution
-- The `approximate="tanh"` parameter uses a faster tanh-based approximation: `0.5 * x * (1 + tanh((2/�) * (x + 0.044715 * x�)))`
+- Mathematical formula:
+
+$$\text{GELU}(x) = x \cdot \Phi(x)$$
+
+where $\Phi(x)$ is the cumulative distribution function of the standard normal distribution.
+
+- The `approximate="tanh"` parameter uses a faster tanh-based approximation:
+
+$$\text{GELU}(x) \approx 0.5 \cdot x \cdot \left(1 + \tanh\left(\sqrt{\frac{2}{\pi}} \cdot (x + 0.044715 \cdot x^3)\right)\right)$$
+
 - Provides smooth gradients and better training dynamics than ReLU
 
 **MAX Linear Layers**:
@@ -52,7 +60,7 @@ This creates a two-layer neural network with a characteristic "expansion and con
 - `c_proj`: "proj" stands for "projection" (projects back to embedding dimension)
 - These names match the original GPT-2 checkpoint structure for weight loading compatibility
 
-### Implementation Tasks (`step_04.py`):
+### Implementation tasks (`step_04.py`)
 
 1. **Import Required Modules** (Lines 1-9):
    - `functional as F` from `max.experimental` - provides F.gelu() activation function
@@ -124,7 +132,7 @@ class GPT2MLP(Module):
         return hidden_states
 ```
 
-### Validation:
+### Validation
 Run `pixi run s04`
 
 A failed test will show:

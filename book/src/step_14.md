@@ -175,4 +175,4 @@ Run `pixi run s14`
 - Transformer blocks and model stacking (Steps 11-12)
 - Language modeling and text generation (Steps 13-14)
 
-Your model can now generate text! To use it with pretrained weights, see [WEIGHT_LOADING.md](../../WEIGHT_LOADING.md) in the repository root.
+Your model can now generate text!

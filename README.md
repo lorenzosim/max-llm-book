@@ -172,11 +172,10 @@ Found an issue or want to improve the tutorial? Contributions welcome:
 
 Once you've completed all 14 steps:
 
-1. **Load pretrained weights**: See [WEIGHT_LOADING.md](WEIGHT_LOADING.md) to use HuggingFace GPT-2 weights
-2. **Experiment with generation**: Modify temperature, sampling strategies in Step 14
-3. **Analyze attention**: Visualize attention weights from your model
-4. **Optimize performance**: Profile and optimize with MAX's compilation tools
-5. **Build something new**: Apply these patterns to custom architectures
+1. **Experiment with generation**: Modify temperature, sampling strategies in Step 14
+2. **Analyze attention**: Visualize attention weights from your model
+3. **Optimize performance**: Profile and optimize with MAX's compilation tools
+4. **Build something new**: Apply these patterns to custom architectures
 
 ## License
 

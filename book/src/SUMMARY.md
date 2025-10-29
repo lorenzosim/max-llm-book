@@ -7,7 +7,7 @@
 - [Model configuration](./step_01.md)
 - [Causal masking](./step_02.md)
 - [Layer normalization](./step_03.md)
-- [Feed-forward network)](./step_04.md)
+- [Feed-forward network](./step_04.md)
 
 # Embeddings
 

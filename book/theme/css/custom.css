@@ -692,6 +692,72 @@ img.dark-mode-img {
   background-color: transparent;
 }
 
+/* Dracula theme for Python syntax highlighting in dark mode */
+.ayu .language-python {
+  color: #f8f8f2;
+}
+
+.ayu .language-python .hljs-keyword,
+.ayu .language-python .hljs-operator {
+  color: #ff79c6;
+}
+
+.ayu .language-python .hljs-string {
+  color: #f1fa8c;
+}
+
+.ayu .language-python .hljs-function,
+.ayu .language-python .hljs-title {
+  color: #50fa7b;
+}
+
+.ayu .language-python .hljs-class {
+  color: #8be9fd;
+}
+
+.ayu .language-python .hljs-comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+.ayu .language-python .hljs-number,
+.ayu .language-python .hljs-literal {
+  color: #bd93f9;
+}
+
+.ayu .language-python .hljs-built_in,
+.ayu .language-python .hljs-type {
+  color: #8be9fd;
+}
+
+.ayu .language-python .hljs-decorator,
+.ayu .language-python .hljs-meta {
+  color: #ff79c6;
+}
+
+.ayu .language-python .hljs-params,
+.ayu .language-python .hljs-attr {
+  color: #ffb86c;
+}
+
+.ayu .language-python .hljs-variable {
+  color: #f8f8f2;
+}
+
+/* Dracula background for code blocks in dark mode */
+.ayu pre {
+  background-color: #282a36;
+  border: 1px solid #44475a;
+}
+
+.ayu code {
+  background-color: #282a36;
+}
+
+.ayu pre code {
+  background-color: transparent;
+}
+
 /* Visual representation boxes */
 .visual-box {
   background-color: rgba(200, 200, 200, 0.05);

@@ -101,6 +101,7 @@ This stacking creates a hierarchy of representations. Early blocks might learn s
 ```
 
 ### Validation
+
 Run `pixi run s12`
 
 **Reference**: `solutions/solution_12.py`

@@ -60,22 +60,22 @@ useful independently while building toward a complete implementation.
 
 This tutorial guides you through building GPT-2 in manageable steps:
 
-| Step | Component                         | What you'll learn                                                 |
-|------|-----------------------------------|-------------------------------------------------------------------|
-| 1    | Model configuration               | Define architecture hyperparameters matching HuggingFace GPT-2    |
-| 2    | Causal masking                    | Create attention masks to prevent looking at future tokens        |
-| 3    | Layer normalization               | Stabilize activations for effective training                      |
-| 4    | GPT-2 MLP (feed-forward network)  | Build the position-wise feed-forward network with GELU activation |
-| 5    | Token embeddings                  | Convert token IDs to continuous vector representations            |
-| 6    | Position embeddings               | Encode sequence order information                                 |
-| 7    | Query/Key/Value projections       | Transform embeddings for attention computation (single head)      |
-| 8    | Attention mechanism               | Implement scaled dot-product attention with causal masking        |
-| 9    | Multi-head attention              | Extend to multiple parallel attention heads                       |
-| 10   | Residual connections & layer norm | Enable training deep networks with skip connections               |
-| 11   | Transformer block                 | Combine attention and MLP into the core building block            |
-| 12   | Stacking transformer blocks       | Create the complete 12-layer GPT-2 model                          |
-| 13   | Language model head               | Project hidden states to vocabulary logits                        |
-| 14   | Text generation                   | Generate text autoregressively with temperature sampling          |
+| Step | Component                                         | What you'll learn                                                  |
+|------|---------------------------------------------------|--------------------------------------------------------------------|
+| 1    | [Model configuration](./step_01.md)               | Define architecture hyperparameters matching HuggingFace GPT-2.    |
+| 2    | [Causal masking](./step_02.md)                    | Create attention masks to prevent looking at future tokens.        |
+| 3    | [Layer normalization](./step_03.md)               | Stabilize activations for effective training.                      |
+| 4    | [GPT-2 MLP (feed-forward network)](./step_04.md)  | Build the position-wise feed-forward network with GELU activation. |
+| 5    | [Token embeddings](./step_05.md)                  | Convert token IDs to continuous vector representations.            |
+| 6    | [Position embeddings](./step_06.md)               | Encode sequence order information.                                 |
+| 7    | [Query/Key/Value projections](./step_07.md)       | Transform embeddings for attention computation (single head).      |
+| 8    | [Attention mechanism](./step_08.md)               | Implement scaled dot-product attention with causal masking.        |
+| 9    | [Multi-head attention](./step_09.md)              | Extend to multiple parallel attention heads.                       |
+| 10   | [Residual connections & layer norm](./step_10.md) | Enable training deep networks with skip connections.               |
+| 11   | [Transformer block](./step_11.md)                 | Combine attention and MLP into the core building block.            |
+| 12   | [Stacking transformer blocks](./step_12.md)       | Create the complete 12-layer GPT-2 model.                          |
+| 13   | [Language model head](./step_13.md)               | Project hidden states to vocabulary logits.                        |
+| 14   | [Text generation](./step_14.md)                   | Generate text autoregressively with temperature sampling.          |
 
 Each step includes:
 

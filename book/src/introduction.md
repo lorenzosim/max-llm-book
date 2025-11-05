@@ -1,18 +1,19 @@
 # Introduction
 
-Transformer models power today's most impactful AI applications, from language
-models like ChatGPT to code generation tools like GitHub Copilot. Maybe you've
-been asked to adapt one of these models for your team, or you want to understand
-what's actually happening when you call an inference API. Either way, building a
-transformer from scratch is one of the best ways to truly understand how they
-work.
+Transformer models power today's most impactful AI applications, from language models like ChatGPT to code generation tools like GitHub Copilot. Maybe you've been asked to adapt one of these models for your team, or you want to understand what's actually happening when you call an inference API. Either way, building a transformer from scratch is one of the best ways to truly understand how they work.
 
-This guide walks you through implementing GPT-2 using Modular's MAX framework.
-You'll build each component yourself: embeddings, attention mechanisms, and
-feed-forward layers. You'll see how they fit together into a complete language
-model. By the end, you'll be able to adapt models to your specific needs, debug
-performance issues by understanding what's happening under the hood, and make
-informed architecture decisions when designing ML systems.
+This guide walks you through implementing GPT-2 using Modular's MAX framework. You'll build each component yourself: embeddings, attention mechanisms, and feed-forward layers. You'll see how they fit together into a complete language model.
+
+## Why GPT-2?
+
+It's the architectural foundation for modern language models. LLaMA, Mistral, GPT-4; they're all built on the same core components you'll implement here:
+
+- multi-head attention
+- feed-forward layers
+- layer normalization
+- residual connections
+
+Modern variants add refinements like grouped-query attention or mixture of experts, but the fundamentals remain the same. GPT-2 is complex enough to teach real transformer architecture but simple enough to implement completely and understand deeply. When you grasp how its pieces fit together, you understand how to build any transformer-based model.
 
 > **Learning by building**: This tutorial follows a format popularized by Andrej
 > Karpathy's educational work and Sebastian Raschka's hands-on approach. Rather
@@ -22,23 +23,20 @@ informed architecture decisions when designing ML systems.
 ## Why MAX?
 
 Traditional ML development often feels like stitching together tools that
-weren't designed to work together. You write your model in PyTorch, optimize in
+weren't designed to work together. Maybe you write your model in PyTorch, optimize in
 CUDA, convert to ONNX for deployment, then use separate serving tools. Each
 handoff introduces complexity.
 
 MAX Framework takes a different approach: everything happens in one unified
-system. You write Python code to define your model, load weights, and run
-inference, all in MAX's Python API. The Engine handles optimization
-automatically, while MAX Serve manages deployment. No context switching, no
-incompatible toolchains.
+system. You write code to define your model, load weights, and run inference,
+all in MAX's Python API. The MAX Platform handles optimization automatically and
+you can even use MAX Serve to manage your deployment.
 
 When you build GPT-2 in this guide, you'll load pretrained weights from
-HuggingFace, implement the architecture, and run text generation, all in the same
-environment. The skills transfer directly to building custom architectures. Once
-you understand how GPT-2's components fit together, you can mix and match these
-patterns for whatever model you need.
+Hugging Face, implement the architecture, and run text generation, all in the same
+environment.
 
-## Why Puzzles?
+## Why puzzles?
 
 This tutorial emphasizes **active problem-solving over passive reading**. Each
 step presents a focused implementation task with:
@@ -75,21 +73,27 @@ This tutorial guides you through building GPT-2 in manageable steps:
 | 11   | [Language model head](./step_11.md)               | Project hidden states to vocabulary logits.                        |
 | 12   | [Text generation](./step_12.md)                   | Generate text autoregressively with temperature sampling.          |
 
-Each step includes:
-
-- Conceptual explanation of the component's role
-- Implementation tasks with inline guidance
-- Validation tests that verify correctness
-- Connections to broader model development patterns
-
 By the end, you'll have a complete GPT-2 implementation and practical experience
 with MAX's Python API. These are skills you can immediately apply to your own projects.
 
-## How This Works
+## How this works
 
 Each step includes automated tests that verify your implementation before moving
 forward. This immediate feedback helps you catch issues early and build
 confidence.
+
+You'll first need to clone the GitHub repository and to the repository:
+
+```sh
+git clone https://github.com/modular/max-gpt2
+cd max-gpt2
+```
+
+Then download and install [pixi](https://pixi.sh/dev/):
+
+```
+curl -fsSL https://pixi.sh/install.sh | sh
+```
 
 To validate a step, use the corresponding test command. For example, to test
 Step 01:

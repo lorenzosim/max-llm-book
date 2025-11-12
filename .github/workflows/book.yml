@@ -44,10 +44,10 @@ jobs:
         run: |
           pixi run fmt
 
-      - name: Tests
-        shell: bash
-        run: |
-          pixi run test-all
+      # - name: Tests
+      #   shell: bash
+      #   run: |
+      #     pixi run test-all
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

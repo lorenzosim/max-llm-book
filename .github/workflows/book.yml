@@ -81,5 +81,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./book/html
-          cname: gp2.modular.com
+          cname: gpt2.modular.com
           allow_empty_commit: true

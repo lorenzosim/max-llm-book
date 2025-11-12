@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: github-gpu
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 

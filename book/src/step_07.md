@@ -52,7 +52,7 @@ dimension: `[batch, seq_length, 768]`. This concatenates all head outputs back
 into the original dimension.
 
 **Output projection (`c_proj`)**: After merging heads, apply a learned linear
-transformation that maps `[batch, seq_leßngth, 768]` to
+transformation that maps `[batch, seq_length, 768]` to
 `[batch, seq_length, 768]`. This lets the model mix information across heads,
 combining the different perspectives each head learned.
 

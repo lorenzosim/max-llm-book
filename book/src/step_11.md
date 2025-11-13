@@ -8,7 +8,7 @@ Learn to add the final linear projection layer that converts hidden states to vo
 
 ## Adding the language model head
 
-In this step, you'll create the `GPT2LMHeadModel` - the complete language model that can predict next tokens. This class wraps the transformer from Step 10 and adds a final linear layer that projects 768-dimensional hidden states to 50,257-dimensional vocabulary logits.
+In this step, you'll create the `MaxGPT2LMHeadModel` - the complete language model that can predict next tokens. This class wraps the transformer from Step 10 and adds a final linear layer that projects 768-dimensional hidden states to 50,257-dimensional vocabulary logits.
 
 The language model head is a single linear layer without bias. For each position in the sequence, it outputs a score for every possible next token. Higher scores indicate the model thinks that token is more likely to come next.
 
@@ -48,7 +48,7 @@ You'll use the following MAX operations to complete this task:
 
 ## Implementing the language model
 
-You'll create the `GPT2LMHeadModel` class that wraps the transformer with a language modeling head. The implementation is straightforward, with just two components and a simple forward pass.
+You'll create the `MaxGPT2LMHeadModel` class that wraps the transformer with a language modeling head. The implementation is straightforward, with just two components and a simple forward pass.
 
 First, import the required modules. You'll need `Linear` and `Module` from MAX, plus the previously implemented `GPT2Config` and `GPT2Model`.
 

@@ -83,7 +83,7 @@ Each step includes automated tests that verify your implementation before moving
 forward. This immediate feedback helps you catch issues early and build
 confidence.
 
-You'll first need to clone the GitHub repository and to the repository:
+You'll first need to clone the GitHub repository and navigate to the repository:
 
 ```sh
 git clone https://github.com/modular/max-gpt2

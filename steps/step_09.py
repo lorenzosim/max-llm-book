@@ -16,8 +16,8 @@ Run: pixi run s09
 # Hint: You'll need Module from max.nn.module_v3
 # Hint: Import GPT2Config from solutions.solution_01
 # Hint: Import GPT2MLP from solutions.solution_04
-# Hint: Import GPT2MultiHeadAttention from solutions.solution_09
-# Hint: Import LayerNorm from solutions.solution_10
+# Hint: Import GPT2MultiHeadAttention from solutions.solution_07
+# Hint: Import LayerNorm from solutions.solution_08
 
 
 class GPT2Block(Module):

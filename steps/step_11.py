@@ -14,7 +14,7 @@ Run: pixi run s11
 # TODO: Import required modules
 # Hint: You'll need Linear and Module from max.nn.module_v3
 # Hint: Import GPT2Config from solutions.solution_01
-# Hint: Import GPT2Model from solutions.solution_12
+# Hint: Import GPT2Model from solutions.solution_10
 
 
 class MaxGPT2LMHeadModel(Module):
